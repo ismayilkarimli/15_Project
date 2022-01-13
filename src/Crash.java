@@ -18,6 +18,7 @@ public class Crash {
     private final int groundDeaths;
     private final int survivors;
     private final double survivalRate;
+    private final double deathRate;
     private final String summary;
     private final Fatality fatalityType;
 
@@ -38,6 +39,7 @@ public class Crash {
         this.groundDeaths = builder.groundDeaths;
         this.survivors = builder.survivors;
         this.survivalRate = builder.survivalRate;
+        this.deathRate = 1 - builder.survivalRate;
         this.summary = builder.summary;
         this.fatalityType = builder.fatalityType;
     }
@@ -99,7 +101,7 @@ public class Crash {
     }
 
     public double getDeathRate() {
-        return 1 - getSurvivalRate();
+        return this.deathRate;
     }
 
     public String getSummary() {
